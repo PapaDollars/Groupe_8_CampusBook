@@ -17,28 +17,34 @@ export default function Navbar() {
     dispatch(logout())
   }
   return (
-    <div className='mainNavbar'>
-          <div className='LogoContainer'>
-                    <p>Social</p>
-          </div>
-          <div>
-                    <div className='searchInputContainer'>
-                              <img src={`${searchIcon}`} className="searchIcon" alt="" />
-                              <input type="text" className='searchInput' placeholder='search your friends' name="" id="" />
-                    </div>
-          </div>
-          <div className='IconsContainer'>
-                    <img src={`${Notifications}`} className="Icons" alt="" />
-                    <img src={`${Message}`} className="Icons" alt="" />
-                    <Link to={`/Profile/${id}`}>
-                    <div style={{display:'flex' , alignItems:'center'}}>
-                              <img src={`${user?.other?.profile}`} className="ProfileImage" alt="" />
-                              <p style={{marginLeft:'5px'}}>{user?.other?.username}</p>
-                    </div>
-                    </Link>
-                    <div style={{marginRight:"30px" , marginLeft:"20px" , cursor:"pointer"}} onClick={handleLogout}>
-                      <p>Logout</p>
-                    </div>
+    <div className='container'>
+          <div className='row'>
+            <div className='col-lg col-md col-sm col-xs-12'>
+                      <h4>CampusBook</h4>
+            </div>
+            <div className='col-lg-6 col-md-6 col-sm-5 col-xs-12'>
+                      
+                      <input type="text" className='searchInput' placeholder='search your friends' name="" id="" />
+            </div>
+            <div className='col-lg col-md col-sm col-xs-12'>
+                <div className='row'>
+                      <div className='col-lg-4 col-md-4 col-sm-4 col-xs-12'>
+                        <img src={`${Notifications}`} className="Icons" alt="" />
+                        <img src={`${Message}`} className="Icons" alt="" />
+                      </div>
+                      <div className='col-lg col-md col-sm col-xs-12'>
+                        <Link to={`/Profile/${id}`}>
+                        <div style={{display:'flex' , alignItems:'center'}}>
+                                  <img src={`${user?.other?.profile}`} className="ProfileImage" alt="" />
+                                  <p style={{marginLeft:'5px'}}>{user?.other?.username}</p>
+                        </div>
+                        </Link>
+                      </div>
+                      <div className='col-lg col-md col-sm col-xs-12' style={{ cursor:"pointer"}} onClick={handleLogout}>
+                        <p>Logout</p>
+                      </div>
+                </div>
+            </div>
           </div>
     </div>
   )

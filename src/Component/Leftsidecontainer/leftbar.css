@@ -1,6 +1,4 @@
-.Leftbar{
-          flex: 1;
-}
+
 .NotificationsContainer{
           width: 18pc;
           height: 60vh;
@@ -11,26 +9,6 @@
           overflow-y: scroll;
 }
 
-.notificationimg{
-          width:37px;
-          height: 37px;
-          border-radius: 50%;
-          margin-left: 10px;
-}
-.followinguserimage{
-          width: 35px;
-          height: 35px;
-          border-radius: 50%;
-          margin-left: 40px;
-
-}
-
-.likeimage{
-          width: 30px;
-          height: 30px;
-          margin-left: 43px;
-          border-radius: 3px;
-}
 
 .exploreimage{
           width: 86px;
@@ -39,4 +17,17 @@
           object-fit: cover;
           border-radius: 4px;
           margin-top: 6px;
+}
+
+.Profileimage{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.addfriend{
+    width: 20px;
+    height: 20px
+    
 }
