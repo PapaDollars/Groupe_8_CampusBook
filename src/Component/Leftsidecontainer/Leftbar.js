@@ -47,8 +47,8 @@ export default function Leftbar() {
                       <div className='row'>
                           <div className='col-lg col-md col-sm col-xs-12 NotificationsContainer'>
                                     <div style={{ display: 'flex', justifyContent: 'space-around' }}>
-                                              <p style={{marginLeft:"-20px"}}>Explore</p>
-                                              <p style={{ color: "#aaa" , marginLeft:"40px" }}>See all</p>
+                                              <p style={{marginLeft:"-20px"}}>Explorer</p>
+                                              <p style={{ color: "#aaa" , marginLeft:"40px" }}>Voir tous</p>
                                     </div>
                                     <div>
                                               {post.map((item)=>(

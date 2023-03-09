@@ -4,6 +4,7 @@ import Home from './Pages/Home/Home';
 import Profile from './Pages/Profile/Profile';
 import Login from './Pages/Login/login';
 import Signup from './Pages/Register/signup';
+import NotifyUser from './Pages/Notify/NotifyUser';
 import {
   BrowserRouter,
   Routes,
@@ -26,6 +27,7 @@ function App() {
         <Route path="/Profile/:id" element={<Profile />}></Route>
         <Route path="/login" element={ user?.other?.verifed === true ? <Navigate to={"/"} replace={true}/> : <Login />}></Route>
         <Route path="/signup" element={   <Signup />}></Route>
+        <Route path="/NotifyUser" element={<NotifyUser />}></Route>
         <Route path="/verify/email" element={user?.Status === 'Pending' ? <Verifyemail/> : user?.other?.verifed === true ? <Navigate to={"/"} replace={true}/> : <Login/>}></Route>
         <Route path="/forgot/password" element={<Forgotpassword/>}></Route>
         <Route path="/reset/password" element={<Resetpassword/>}></Route>

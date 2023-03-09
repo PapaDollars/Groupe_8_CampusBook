@@ -8,6 +8,7 @@ import Moreoption from "../Images/more.png";
 import anotherlikeicon from "../Images/setLike.png"
 import { useEffect } from 'react';
 import axios from 'axios';
+
 export default function Post({detail}) {
   console.log(detail)
   const [count, setCount] = useState(0);
@@ -22,7 +23,7 @@ export default function Post({detail}) {
         const res  = await axios.get(`http://localhost:5000/api/user/post/user/details/${detail.user}`)
         setuser(res.data);
       } catch (error) {
-        console.log("Some error occured")
+        console.log("une erreur s'est produite")
       }
     }
     getuser();
@@ -75,7 +76,7 @@ console.log(detail.like.length)
             
             <div>
               <p style={{ marginLeft: '5px', textAlign: "start" }}>{user.username}</p>
-              <p style={{ fontSize: "11px", textAlign: "start", marginLeft: 5, marginTop: -13, color: "#aaa" }}>Following by suman</p>
+              <p style={{ fontSize: "11px", textAlign: "start", marginLeft: 5, marginTop: -13, color: "#aaa" }}>Following </p>
             </div>
             <img src={`${Moreoption}`} className="moreicons" alt="" />
           </div>
@@ -84,25 +85,24 @@ console.log(detail.like.length)
           <div style={{ display: "flex" }}>
             <div style={{ display: "flex", marginLeft: "10px" }}>
               <div style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
-                {/* <img src={`${Like}`} className="iconsforPost" onClick={handleLike} alt="" /> */}
-                <p style={{ marginLeft: "6px" }}>{detail.like.length} Likes</p>
+                <img src={`${LikeIcon}`} className="iconsforPost" onClick={handleshow} alt="" />
+                <p style={{ marginLeft: "6px" }}>{detail.like.length} J'aime</p>
               </div>
               <div style={{ display: "flex", alignItems: "center", marginLeft: 20, cursor: "pointer" }}>
                 <img src={`${CommentIcon}`} className="iconsforPost" onClick={handleshow} alt="" />
-                <p style={{ marginLeft: "6px" }}>{detail.comments.length} Comments</p>
+                <p style={{ marginLeft: "6px" }}>{detail.comments.length} Commenter</p>
               </div>
             </div>
-            <div style={{ display: "flex", alignItems: "center", marginLeft: 200, cursor: "pointer" }}>
+            <div style={{ display: "flex", alignItems: "center", marginLeft: 170, cursor: "pointer" }}>
               <img src={`${Shareicon}`} className="iconsforPost" alt="" />
-              <p style={{ marginLeft: "6px" }}>Share</p>
+              <p style={{ marginLeft: "6px" }}>Partager</p>
             </div>
           </div>
           {show === true ?
           <div style={{padding:'10px'}}>
             <div style={{ display: "flex", alignItems: "center" }}>
               <img src={`${ProfileImage}`} className="PostImage" alt="" />
-              {/* <p style={{marginLeft:"6px"}}>Suman</p> */}
-              <input type="text" className='commentinput' placeholder='Write your thought' onChange={(e) => setcommentwriting(e.target.value)} />
+              <input type="text" className='commentinput' placeholder='Votre commentaire...' onChange={(e) => setcommentwriting(e.target.value)} />
               <button className='addCommentbtn' onClick={handleComment}>Post</button>
             </div>
             {Comments.map((item) => (
@@ -112,7 +112,7 @@ console.log(detail.like.length)
                   <p style={{ marginLeft: "6px" , fontSize:18, marginTop:6 }}>{item.username}</p>
                 </div>
                 <p style={{ marginLeft: "55px" , textAlign:'start' , marginTop:-16 }}>{item.title}</p>
-                <p style={{ marginLeft: "55px" , textAlign:'start' , marginTop:-10 , color:"#aaa" , fontSize:11}}>Reply</p>
+                <p style={{ marginLeft: "55px" , textAlign:'start' , marginTop:-10 , color:"#aaa" , fontSize:11}}>Répondre</p>
                 
               </div>
 

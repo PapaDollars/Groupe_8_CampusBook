@@ -56,23 +56,35 @@ console.log(userDetails?.Status)
     navigator("/verify/email");
   }
   return (
-    <div className='mainContainerForsignup'>
-      <div className='submainContainer'>
-        <div style={{flex:1 , marginLeft:150  , marginBottom:"170px"}}>
-          <p className='logoText'>Soc<span className='part'>ial</span></p>
-          <p className='introtext'>Connect with your <span className='part'>family and friends </span></p>
-        </div>
-        <div style={{flex:3}}>
-          <p className='createaccountTxt'>Create New Account</p>
-          <input type="file" name="file" id="file" onChange={(e)=>setfile(e.target.files[0])} />
-          <input type="text" placeholder='Username' onChange={(e)=>setusername(e.target.value)} className='inputText' />
-          <input type="text" placeholder='Phonenumber' onChange={(e)=>setphonenumber(e.target.value)} className='inputText' />
-          <input type="email" name="" id="" placeholder='email' onChange={(e)=>setEmail(e.target.value)} className='inputText' />
-          <input type="password" placeholder='******' name="" onChange={(e)=>setpassword(e.target.value)} id="" className='inputText' />
-          <button className='btnforsignup' onClick={handleClick}>Signup</button>
-          <Link to={"/"}>
-          <p style={{textAlign:'start' , marginLeft:"30.6%" }}>Already have a account</p>
-          </Link>
+    <div className='container'>
+      <div className='row'>
+          <div className='col-lg-6 col-md-6 col-sm-5 col-xs-12 align-self-center'>
+            <p className='logoText'>Campus<span className='text-success'>Book</span></p><br/>
+            <p className='introtext'>Créer un nouveau <span className='text-success'> compte</span></p>
+          </div>
+        <div className='col-lg-6 col-md-6 col-sm-5 col-xs-12 align-self-center bg-light'>
+        <p className='fs-3'>Créer un nouveau compte</p>
+          <div className='row'>
+                <div className="col-lg-3 col-md-3 col-sm-3 col-xs-12 ">
+                </div>  
+                <div className="col-lg-6 col-md-6 col-sm-5 col-xs-12 p-4 mb-3">
+                  <label for="photo" class="form-label">Photo de profil : </label>
+                  <input type="file" class="form-control" name="file" id="file" onChange={(e)=>setfile(e.target.files[0])} /><br/>
+                  <label for="nom" class="form-label">Nom d'utilisateur : </label>
+                  <input type="text" class="form-control" id="username" onChange={(e)=>setusername(e.target.value)} placeholder="exemple:dollar" /><br/>
+                  <label for="telephone" class="form-label">Numéro de téléphone : </label>
+                  <input type="text" class="form-control" id="telephone" onChange={(e)=>setphonenumber(e.target.value)} placeholder="1234567890" /><br/>
+                  <label for="exampleFormControlInput1" class="form-label">Adresse mail : </label>
+                  <input type="email" class="form-control" id="exampleFormControlInput1" onChange={(e)=>setEmail(e.target.value)} placeholder="name@example.com" /><br/>
+                  <label for="inputPassword" class="form-label">Mot de passe : </label>
+                  <input type="password" class="form-control" id="inputPassword" onChange={(e)=>setpassword(e.target.value)} placeholder="******" />
+                </div>
+                <div className="col-lg-3 col-md-3 col-sm-3 col-xs-12"></div>  
+            </div>
+          <button type="button" class="btn btn-success p-2 mb-4" onClick={handleClick}>S'inscrire</button>
+            <Link to={"/"}>
+              <p style={{textAlign:'center' }}>Vous avez déjà un compte ?</p>
+            </Link>
         </div>
       </div>
     </div>

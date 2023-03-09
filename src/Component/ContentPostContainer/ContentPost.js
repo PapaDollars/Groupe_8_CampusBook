@@ -16,6 +16,9 @@ export default function ContentPost() {
   const [file , setFile] = useState(null);
   const [file2 , setFile2] = useState(null);
   const [title , setTile] = useState('');
+  const notify1 = 'viens de poster une photo dans son compte';
+  const notify2 = 'viens de poster une vidéo dans son compte';
+  const notify3 = 'viens de poster un message dans son compte';
   const [imagePre , setImagePre] = useState(null);
   const [VideoPre , setVideoPre] = useState(null);
   const accessToken = user.accessToken;
@@ -34,13 +37,13 @@ export default function ContentPost() {
     // Observe state change events such as progress, pause, and resume
     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
     const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    console.log('Upload is ' + progress + '% done');
+    console.log('Le téléchargement est à ' + progress + '% fait');
     switch (snapshot.state) {
       case 'paused':
-        console.log('Upload is paused');
+        console.log('Le téléchargement est en pause');
         break;
       case 'running':
-        console.log('Upload is running');
+        console.log('Le téléchargement est en cours');
         break;
     }
   }, 
@@ -51,8 +54,8 @@ export default function ContentPost() {
     // Handle successful uploads on complete
     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-      fetch(`http://localhost:5000/api/post/user/post` , {method:"POST" , headers:{'Content-Type':"application/JSON", token : accessToken} , body:JSON.stringify({title:title , image:downloadURL , video:''})}).then((data)=>{
-        alert("Your Post was upload successfully");
+      fetch(`http://localhost:5000/api/post/user/post` , {method:"POST" , headers:{'Content-Type':"application/JSON", token : accessToken} , body:JSON.stringify({title:title , image:downloadURL , video:'', notify:notify1})}).then((data)=>{
+        alert("Votre photo a été partager avec succès");
         window.location.reload(true)
       })
     });
@@ -68,13 +71,13 @@ export default function ContentPost() {
     // Observe state change events such as progress, pause, and resume
     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
     const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    console.log('Upload is ' + progress + '% done');
+    console.log('Le téléchargement est à ' + progress + '% fait');
     switch (snapshot.state) {
       case 'paused':
-        console.log('Upload is paused');
+        console.log('Le téléchargement est en pause');
         break;
       case 'running':
-        console.log('Upload is running');
+        console.log('Le téléchargement est en cours');
         break;
     }
   }, 
@@ -85,16 +88,16 @@ export default function ContentPost() {
     // Handle successful uploads on complete
     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
     getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-      fetch(`http://localhost:5000/api/post/user/post` , {method:"POST" , headers:{'Content-Type':"application/JSON", token : accessToken} , body:JSON.stringify({title:title , video:downloadURL , image:''})}).then((data)=>{
-        alert("Your Post was upload successfully");
+      fetch(`http://localhost:5000/api/post/user/post` , {method:"POST" , headers:{'Content-Type':"application/JSON", token : accessToken} , body:JSON.stringify({title:title , video:downloadURL , image:'', notify:notify2})}).then((data)=>{
+        alert("Votre vidéo a été partager avec succès");
         window.location.reload(true)
       })
     });
   }
 );
 }else{
-  fetch(`http://localhost:5000/api/post/user/post` , {method:"POST" , headers:{'Content-Type':"application/JSON", token : accessToken} , body:JSON.stringify({title:title , video:'' , image:''})}).then((data)=>{
-    alert("Your Post was upload successfully");
+  fetch(`http://localhost:5000/api/post/user/post` , {method:"POST" , headers:{'Content-Type':"application/JSON", token : accessToken} , body:JSON.stringify({title:title , video:'' , image:'', notify:notify3})}).then((data)=>{
+    alert("Votre message a été partager avec succès");
     window.location.reload(true)
   })
 }
@@ -106,7 +109,7 @@ export default function ContentPost() {
       <div className='ContentUploadContainer'>
         <div style={{ display: "flex", alignItems: "center", padding: 10 }}>
           <img src={`${user?.other?.profile}`} className="profileimage" alt="" />
-          <input type="text" className='contentWritingpart' placeholder='Write your real thought.....' onChange={(e)=>setTile(e.target.value)} />
+          <input type="text" className='contentWritingpart' placeholder='Quoi de neuf ?' onChange={(e)=>setTile(e.target.value)} />
         </div>
         <div style={{marginLeft: '10px' }}>
           {imagePre !== null ? <img src={imagePre} style={{width:"410px" , height:'250px' , objectFit:"cover" , borderRadius:'10px'}} alt="" /> : VideoPre !== null ? <video className="PostImages" width="500" height="500" controls >
@@ -125,7 +128,7 @@ export default function ContentPost() {
               <input type="file" name="file2" id="file2" style={{display:"none"}} onChange={(e)=>[setFile2(e.target.files[0]) , setVideoPre(URL.createObjectURL(e.target.files[0]))]} />
             </label>
           </div>         
-            <button style={{height:"30px" ,marginRight:"12px",marginTop:"40px", paddingLeft:"20px" , paddingRight:"20px" , paddingTop:6 , paddingBottom:6 , border:"none" , backgroundColor:"black" , color:"white" , borderRadius:"5px" , cursor:"pointer"}} onClick={handlePost}>Post</button>
+            <button type="button" class="btn btn-success" style={{height:"40px",marginTop:"40px"}} onClick={handlePost}> Poster </button>
           </div>
         </div>
       </div>

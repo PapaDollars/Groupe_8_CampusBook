@@ -40,34 +40,36 @@ export default function ProfileRightbar() {
   console.log(users)
   
   return (
-    <div className='Profilerightbar'>
-      <div className='profilerightcontainer'>
-        <h3>Followers</h3>
-        <div>
-          {Followinguser.map((item)=>(
-            <div style={{marginTop:"10px"}}>
-             <div style={{display:'flex' , alignItems:"center" , marginLeft:10 , cursor:"pointer"}}>
-              <img src={`${item.profile}`} className="Friendsimage" alt="" />
-              <p style={{textAlign:"start"  , marginLeft:"10px"}}>{item.username} </p>
+    <>  
+      <div className='conaiter-fluid'>
+        <div className='row'>
+        <div className='col-lg-12 col-md-12 col-sm-12 col-xs-12' bg-light>
+            <div className='profilerightcontainer'>
+              <h3>Followers</h3>
+              <div>
+                {Followinguser.map((item)=>(
+                  <div style={{marginTop:"10px"}}>
+                  <div style={{display:'flex' , alignItems:"center" , marginLeft:10 , cursor:"pointer"}}>
+                    <img src={`${item.profile}`} className="Friendsimage" alt="" />
+                    <p style={{textAlign:"start"  , marginLeft:"10px"}}>{item.username} </p>
+                  </div>
+                </div>
+                  ))}
+              </div>
+
             </div>
-          </div>
-            ))}
-          
-          
-          
         </div>
-
       </div>
 
-      <div className='rightcontainer2'>
-        <h3 style={{textAlign:"start" , marginLeft:"10px"}}>Suggested for you</h3>
-        {users.map((item)=>(
-          <Follow userdetails={item}/>
-          ))}
-        
+      <div className='row'>
+        <div className='col-lg-12 col-md-12 col-sm-12 col-xs-12' bg-light>
+            <h3 style={{textAlign:"start" , marginLeft:"10px"}}>Connaissez-vous...</h3>
+              {users.map((item)=>(
+                <Follow userdetails={item}/>
+                ))}
+        </div>
       </div>
-
-
-    </div>
+      </div>
+    </>
   )
 }

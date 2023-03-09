@@ -22,6 +22,7 @@ export default function Follow({userdetails}) {
     const handleFollow= async(e)=>{
             await fetch(`http://localhost:5000/api/user/following/${userdetails._id}` , {method:'PUT', headers:{'Content-Type':"application/JSON" , token:accessToken} , body:JSON.stringify({user:`${id}`})})
             setFollow(UserToFollow);
+            window.location.reload(true)
       }
   return (
           <div style={{marginTop:"-10px"}} key={userdetails._id}>
@@ -31,7 +32,7 @@ export default function Follow({userdetails}) {
               <img src={`${userdetails.profile}`} className="Profileimage" alt="" />
               <div>
                 <p style={{ marginLeft: "10px" , textAlign:'start' }}>{userdetails.username}</p>
-                <p style={{ marginLeft: "10px" , textAlign:'start' , marginTop:"-16px" , fontSize:"11px" , color:"#aaa" }}>Suggested for you</p>
+                <p style={{ marginLeft: "10px" , textAlign:'start' , marginTop:"-16px" , fontSize:"11px" , color:"#aaa" }}>Proposé pour vous</p>
               </div>
             </div>
             </Link>

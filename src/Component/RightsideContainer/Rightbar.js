@@ -36,7 +36,7 @@ export default function Rightbar() {
                                   <div className='col-lg col-md col-sm col-xs-12 NotificationsContainer'>
                                         <div style={{ display: 'flex', justifyContent: 'space-around' }}>
                                                   <p style={{marginLeft:"-14px"}}>Notifications</p>
-                                                  <p style={{ color: "#aaa" , marginLeft:"40px" }}>See all</p>
+                                                  <p style={{ color: "#aaa" , marginLeft:"40px" }}>Voir tous</p>
                                         </div>
                                         <div style={{display:'flex' , alignItems:"center" , marginTop:-10}}>
                                                   <img src={`${image}`} className="notificationimg" alt="" />
@@ -73,7 +73,7 @@ export default function Rightbar() {
         </div>
 
       <div className='row'>
-        <h3 style={{textAlign:"start" , marginLeft:"10px"}}>Suggested for you</h3>
+        <h3 style={{textAlign:"start" , marginLeft:"10px"}}>Connaissez-vous...</h3>
         {users.map((item)=>(
           <Follow userdetails={item}/>
           ))}

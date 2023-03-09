@@ -80,7 +80,7 @@ console.log(user)
             
             <div>
               <p style={{ marginLeft: '5px', textAlign: "start" }}>{user.username}</p>
-              <p style={{ fontSize: "11px", textAlign: "start", marginLeft: 5, marginTop: -13, color: "#aaa" }}>Following by suman</p>
+              <p style={{ fontSize: "11px", textAlign: "start", marginLeft: 5, marginTop: -17, color: "#aaa" }}>12/03/2023</p>
             </div>
             <img src={`${Moreoption}`} className="moreicons" alt="" />
           </div>
@@ -94,16 +94,16 @@ console.log(user)
             <div style={{ display: "flex", marginLeft: "10px" }}>
               <div style={{ display: "flex", alignItems: "center", cursor: "pointer" }}>
                 <img src={`${Like}`} className="iconsforPost" onClick={handleLike} alt="" />
-                <p style={{ marginLeft: "6px" }}>{count} Likes</p>
+                <p style={{ marginLeft: "6px" }}>{count} J'aime</p>
               </div>
               <div style={{ display: "flex", alignItems: "center", marginLeft: 20, cursor: "pointer" }}>
                 <img src={`${CommentIcon}`} className="iconsforPost" onClick={handleshow} alt="" />
-                <p style={{ marginLeft: "6px" }}>{Comments.length} Comments</p>
+                <p style={{ marginLeft: "6px" }}>{Comments.length} Commenter</p>
               </div>
             </div>
-            <div style={{ display: "flex", alignItems: "center", marginLeft: 200, cursor: "pointer" }}>
+            <div style={{ display: "flex", alignItems: "center", marginLeft: 170, cursor: "pointer" }}>
               <img src={`${Shareicon}`} className="iconsforPost" alt="" />
-              <p style={{ marginLeft: "6px" }}>Share</p>
+              <p style={{ marginLeft: "6px" }}>Partager</p>
             </div>
           </div>
           {show === true ?
